@@ -1,0 +1,8 @@
+PATCH http://localhost:8080/books/bookId
+Content-Type: application/json
+
+{
+    "title":"new title",
+    "author":"new author",
+    "description":"new description"
+}
