@@ -40,4 +40,18 @@ public class BookService {
 
         return new Response<Book>(updated, "Book successfully updated");
     }
+
+    public Response<Book> deleteBook(String bookId) {
+        Optional<Book> optionalBook = bookRepository.findById(bookId);
+
+        if(optionalBook.isEmpty()) {
+            throw new BookNotFoundException();
+        }
+
+        Book book = optionalBook.get();
+
+        bookRepository.delete(book);
+
+        return new Response<Book>(book, "Book successfully deleted");
+    }
 }
