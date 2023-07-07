@@ -1,5 +1,7 @@
 package aprendendo.api.crudmongodb.books;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import aprendendo.api.crudmongodb.common.Response;
@@ -15,5 +17,9 @@ public class BookService {
         Book saved = bookRepository.save(book);
 
         return new Response<Book>(saved, "Book successfully registered ");
+    }
+
+    public List<Book> findAll() {
+        return bookRepository.findAll();
     }
 }
